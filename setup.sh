@@ -157,6 +157,7 @@ clear
 
 # echo "
 dialog --title "DWM Install Script" --msgbox "
+
  █████  ██████   ██████ ██   ██                                                                                                                  
 ██   ██ ██   ██ ██      ██   ██                                                                                                                  
 ███████ ██████  ██      ███████                                                                                                                  
@@ -385,5 +386,64 @@ else
 fi
 
 clear
+
+# Check if curl is installed, if not, install it
+# if ! command -v curl &> /dev/null; then
+#     echo "curl is not installed. Installing curl..."
+#     if [ -f /etc/debian_version ]; then
+#         sudo nala update
+#         sudo nala install -y curl
+#     elif [ -f /etc/arch-release ]; then
+#         sudo pacman -Sy --noconfirm curl
+#     else
+#         echo "Unsupported distribution. Unable to install curl."
+#         exit 1
+#     fi
+# fi
+
+# Run the christitus Linutil script
+# curl -fsSL https://christitus.com/linux | sh
+
+
+
+# Run the christitus Linutil script
+# Clone the linutil repository
+echo "Cloning the linutil repository..."
+git clone https://github.com/ChrisTitusTech/linutil.git ~/linutil
+
+# Change directory to linutil
+cd ~/linutil
+
+# Make start.sh executable
+echo "Making script executable..."
+#chmod +x start.sh
+chmod +x startdev.sh
+
+echo "Running linutil..."
+./startdev.sh
+#./start.sh
+
+# Change back Home directory
+cd ~
+
+echo "Linutil script has been executed."
+
+# Remove the linutil directory
+echo "Removing the linutil directory..."
+rm -rf ~/linutil
+
+echo "Linutil directory has been removed."
+
+clear
+
+echo "
+
+███████ ██ ███    ██ ██ ███████ ██   ██ ███████ ██████  ██ 
+██      ██ ████   ██ ██ ██      ██   ██ ██      ██   ██ ██ 
+█████   ██ ██ ██  ██ ██ ███████ ███████ █████   ██   ██ ██ 
+██      ██ ██  ██ ██ ██      ██ ██   ██ ██      ██   ██    
+██      ██ ██   ████ ██ ███████ ██   ██ ███████ ██████  ██ 
+
+"                                                   
 
 printf "\e[1;32mYou can now reboot! Thank you.\e[0m\n"
