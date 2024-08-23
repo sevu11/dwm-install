@@ -1,3 +1,5 @@
+# IN PROGRESS AND SHOULD NOT BE USED YET #
+
 # DWM Installation and Configuration Scripts
 
 This repository contains a collection of scripts to automate the installation and configuration of DWM (Dynamic Window Manager) along with various utilities and applications. These scripts are designed to work on both Debian-based and Arch-based Linux distributions.
