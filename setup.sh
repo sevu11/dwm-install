@@ -409,15 +409,15 @@ clear
 # Run the christitus Linutil script
 # Clone the linutil repository
 echo "Cloning the linutil repository..."
-git clone https://github.com/ChrisTitusTech/linutil.git ~/linutil
+sudo git clone https://github.com/ChrisTitusTech/linutil.git ~/linutil
 
 # Change directory to linutil
 cd ~/linutil
 
 # Make start.sh executable
 echo "Making script executable..."
-#chmod +x start.sh
-chmod +x startdev.sh
+#sudo chmod +x start.sh
+sudo chmod +x startdev.sh
 
 echo "Running linutil..."
 ./startdev.sh
