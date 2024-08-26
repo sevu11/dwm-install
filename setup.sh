@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create a log file
-LOG_FILE=~/dwm-install/install_log.txt
+LOG_FILE=$HOME/dwm-install/install_log.txt
 
 # Function to log messages
 log_message() {
@@ -150,7 +150,7 @@ log_message "Git is installed"
 dialog --title "Git Installed" --msgbox "Git is installed. Continuing with the script..." 5 50
 
 # Clone repositories
-git clone https://github.com/sevu11/dwm-install ~/dwm-install
+git clone https://github.com/sevu11/dwm-install $HOME/dwm-install
 log_message "Cloned dwm-install repository"
 
 clear
@@ -325,7 +325,7 @@ if systemctl is-enabled sddm.service &> /dev/null; then
     echo "SDDM was installed. Copying theme..."
     log_message "Copying SDDM theme"
     sudo mkdir -p /usr/share/sddm/themes/chili
-    sudo cp -r ~/dwm-install/.config/sddm/themes/chili /usr/share/sddm/themes/
+    sudo cp -r $HOME/dwm-install/.config/sddm/themes/chili /usr/share/sddm/themes/
     if [ $? -eq 0 ]; then
         echo "SDDM theme 'chili' successfully copied to /usr/share/sddm/themes/"
         log_message "SDDM theme 'chili' successfully copied"
@@ -340,23 +340,23 @@ fi
 
 # Run the setup script
 log_message "Running setup script"
-bash ~/dwm-install/scripts/setup.sh
+bash $HOME/dwm-install/scripts/setup.sh
 
 clear
 
 # Run the extra packages script
 log_message "Running extra packages script"
-bash ~/dwm-install/scripts/packages.sh
+bash $HOME/dwm-install/scripts/packages.sh
 
 clear
 
 # Install printer services
 log_message "Installing printer services"
-bash ~/dwm-install/scripts/printers.sh
+bash $HOME/dwm-install/scripts/printers.sh
 
 # Install Bluetooth services
 log_message "Installing Bluetooth services"
-bash ~/dwm-install/scripts/bluetooth.sh
+bash $HOME/dwm-install/scripts/bluetooth.sh
 
 # Clean up packages on Debian-based systems
 if command -v apt &> /dev/null; then
@@ -377,7 +377,7 @@ read remove_repos
 
 if [[ "$remove_repos" =~ ^[Yy]$ ]]; then
     echo "Removing dwm-install repository folder..."
-    rm -rf ~/dwm-install
+    rm -rf $HOME/dwm-install
     echo "The dwm-install repository folder has been removed."
 elif [[ "$remove_repos" =~ ^[Nn]$ ]]; then
     echo "The dwm-install repository folder will be kept."
@@ -409,19 +409,19 @@ clear
 # Run the christitus Linutil script
 # Clone the linutil repository
 echo "Cloning the linutil repository..."
-sudo git clone https://github.com/ChrisTitusTech/linutil.git ~/linutil
+sudo git clone https://github.com/ChrisTitusTech/linutil.git $HOME/linutil
 
 # Change directory to linutil
-cd ~/linutil
+cd $HOME/linutil
 
 # Make start.sh executable
 echo "Making script executable..."
-#sudo chmod +x start.sh
+sudo chmod +x start.sh
 sudo chmod +x startdev.sh
 
 echo "Running linutil..."
-./startdev.sh
-#./start.sh
+#./startdev.sh
+./start.sh
 
 # Change back Home directory
 cd ~
@@ -430,7 +430,7 @@ echo "Linutil script has been executed."
 
 # Remove the linutil directory
 echo "Removing the linutil directory..."
-rm -rf ~/linutil
+rm -rf $HOME/linutil
 
 echo "Linutil directory has been removed."
 
