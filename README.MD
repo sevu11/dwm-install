@@ -1,4 +1,4 @@
-# IN PROGRESS AND SHOULD NOT BE USED YET #
+# !! IN PROGRESS AND SHOULD NOT BE USED YET !! #
 
 # DWM Installation and Configuration Scripts
 
